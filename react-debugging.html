@@ -64,12 +64,16 @@
         }
         // No need to change anything ABOVE this line ^
 
+        // the code on line 73 was formerly onClick={}. this did not work as onClick had nothing to call to
+        // the return originally had no react fragments (<></>), rendering the code unable to be displayed as JS cannot run html tags
+        // line 76 was formerly onclick={shuffle}. this did not work as the onClick was not in camelCase, rendering it unreadable
         return (
+          <>
           <h1>Draw a Card</h1>
-          <button onClick={}>
+          <button onClick={drawCard}>
             Click to Draw a Card
           </button>
-          <button onclick={shuffle}>
+          <button onClick={shuffle}>
             Return Cards and Shuffle Deck
           </button>
           <div style={handStyles}>
@@ -81,6 +85,7 @@
               )
             })}
           </div>
+          </>
         )
       }
 
